@@ -1,0 +1,364 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Oswald', sans-serif;
+}
+/* scroll-behevior giup cac chuyen dong di chuyen toi bo cuc muot ma  */
+/* html{
+    scroll-behavior: smooth;
+} */
+
+.container {
+    max-width: 1440px;
+    margin: 0 auto;
+}
+/* header */
+ header{ 
+    padding: 20px 0;
+    position: absolute;
+    width: 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.185);
+} 
+header .header_content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+} 
+header .header_content nav ul{
+    list-style: none;
+}
+header nav ul li{
+    display: inline;
+    margin: 0 10px; 
+}
+header nav ul li a{
+    text-decoration: none;
+    color: white;
+    /* text-tranfom giup dieu chinh noi dung: 3 giá trị (uppercase,capitalize, lowcase) giúp viết thường, in hoa, in hoa chữ đầu */
+    text-transform: uppercase;
+    font-size: 17px;
+    /* transition: color 1s; */
+    transition: all 0.5s;
+}
+header nav ul .active a{
+    color: #e62b4a;
+}
+/* hover giup tao cac thay doi css khi nguoi dung tuong tac dua chuot tooi vung phan tu html  */
+header nav ul a:hover{
+    color: #e62b4a;
+}
+header .header_logo a{
+    text-decoration: none;
+    color: #ffff;
+    font-size :35px;;
+}
+/* banner */
+.banner {
+    background-image: url(../image-video/home_slider.jpg);
+    height: 70vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #ffff;
+}
+.banner .sub_title {
+    font-size: 25px;
+}
+.banner h1 {
+    font-size: 75px;
+    line-height: 90px;
+}
+.banner button {
+    color: #ffff;
+    background-color: #e62b4a;
+    padding: 10px 13px;
+    border: none;
+    transition: all 0.5s;
+}
+.banner button:hover{
+    background-color: #AF2239;
+    cursor: pointer;
+}
+.banner i{
+    /* animation-name giup goi toi animation can chay  */
+    animation-name: arrowGoDown;
+    /* animation-duration giup xac dinh thoi gian tu luc bat dau den ket thuc la bao nhieugiay  */
+    animation-duration: 1s;
+    /* animation-iteration-count giups xac dinh so lan lawp lai (infinite lap vo tan) */
+    animation-iteration-count: infinite;
+}
+.servieces {
+    background-color: black;
+    padding: 50px 0;
+    text-align: center;
+    color: #ffff;
+}
+.servieces .service_title .sub_title{
+    color: #e62b4a;
+}
+.servieces .service_title h2{
+    color: white;
+    font-size: 50px;
+    font-weight: 400px;
+}
+.servieces .service_title p{
+    color: grey;
+}
+.servieces .serviece_item{
+    padding: 0 10px;
+}
+.servieces .serviece_item .item_bg{
+    background-color: #ffff;
+    padding: 100px 50px;
+    color: black;
+    font-size: 20px;
+    text-transform: uppercase;
+    position: relative;
+}
+.servieces .serviece_item i {
+    font-size: 60px;
+}
+.servieces .serviece_item .item_bg::before{
+    content: "";
+    display: block;
+    width: 5px;
+    height: 0;
+    background-color: #e62b4a;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: all 0.5s;
+}
+.servieces .serviece_item .item_bg:hover::before{
+    height: 100%;
+}
+/* nên dùng một class cha của phần bố cục cần chỉnh sửa bọc lại đoạn selector vì vậy sẽ không ảnh hưởng tất cả các thành phần bên dưới */
+.servieces .slick-dots li button:before {
+    color: white;
+    font-size: 15px;
+}
+
+.servieces .slick-dots .slick-active button::before{
+    color: #e62b4a;
+}
+.post {
+    padding: 50px 0;
+    text-align: center;
+}
+.post .sub_title{
+    color: gray;
+    font-size: 14px;
+}
+.post h2{
+    font-size: 50px;
+    font-weight: 400;
+}
+.post p{
+    color: gray;
+    font-weight: 500;
+}
+.post .post_content{
+    display: grid;
+    /* grid template-columns giup chia cot trong thuoc tinh grid */
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px; 
+}
+.post .post_content img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(70%) brightness(0.8);
+}
+.post .post_content .post_item:first-child{
+    grid-column: 1 / span 2;
+    grid-row: 1 / span 2;
+}
+.post .post_content .post_item:last-child{
+    grid-column: 3 / span 2;
+    grid-row: 3 / span 2;
+}
+
+.post .post_content .post_item{
+    position: relative;
+    overflow: hidden;
+}
+.post .post_item .overlay{
+    position: absolute;
+    /* su udng 4 tk top left right bottom bang 0 */
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(255, 0, 0, 0.452);
+    /* width: 100%;
+    height: 100%; */
+    /* cach 1 */
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    padding: 20px;
+    transition: all 0,5s;
+    opacity: 0;
+
+}
+.post .overlay .overlay_icon{
+    text-align: right;
+    /* cach 2: dung position: absolute ;cho cac tp con  */
+    /* position: absolute;
+    top:20px;
+    right: 20px; */
+}
+.post .post_item:hover .overlay{
+    /* display: flex; */
+    opacity: 1;
+}
+
+.post .overlay .overlay_icon i{
+    padding: 15px;
+    background-color: white;
+    /* transform khi nhận phần tử translate sẽ giúp dịch phần tử html theo 2 chiều là ngang và dọc  */
+    /* transform: translateY() scale() rotate( deg); */
+    transform: translateY(30px);
+    transition: all 0.5s;
+}
+.post .post_item:hover .overlay_icon i{
+    transform: translateY(0);
+}
+
+.post .overlay .overlay_text{
+    text-align: left;
+    /* padding: 15px; */
+    /* position: absolute;
+    bottom: 30px;
+    left: 20px; */
+    transform: translateY(30px);
+    transition: all 0.5s;
+}
+.post .post_item:hover .overlay_text{
+    transform: translateY(0);
+}
+.post .overlay .overlay_text h3{
+    color: white;
+}
+/* number */
+.number{
+    background-color: black;
+    padding: 50px 0;
+    color: white;
+}
+.number .number_content{
+    display: flex;
+    justify-content: space-between;
+}
+.number .number_content .number_item h3{
+    font-size: 45px;
+    text-align: center;
+}
+
+/* digital  */
+.digital{
+    padding: 50px 0;
+    background-image: url(./../image-video/bussiness_img_1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+/* contact */
+.contact{
+    padding: 50px 0;
+    text-align: center;
+}
+.contact .contact_title h2{
+    font-size: 50px;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+.contact .contact_title p{
+    color: gray;
+}
+.contact .contact_content{
+    display: flex;
+}
+.contact .contact_content .content_left{
+    width: 60%;
+}
+.contact .contact_content .content_right{
+    width: 40%;
+    margin-left: 10px;
+}
+.contact .contact_content .content_right form{
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+/* cách viết css vào thuộc tính sẽ ăn vào cho nhiều selector  */
+.contact .content_right input,
+.contact .content_right textarea,
+.contact .content_right button {
+    padding: 10px;
+}
+.contact .content_right button{
+    border: none;
+    color: white;
+    background-color: black;
+    text-transform: uppercase;
+}
+.contact .content_right button:hover{
+    background-color: #e62b4a;
+    cursor: pointer;
+}
+.back_to_top{
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #e62b4a;
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    opacity: 0;
+    visibility: hidden;
+}
+.cd-top--is-visible { 
+    visibility: visible;
+    opacity: 1;
+}
+  
+.cd-top--fade-out { 
+    opacity: 0.5;
+}
+
+@keyframes arrowGoDown {
+    /* from the hien cac thuoc tinh gan vao khi bat dau animation  */
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    /* to the hien khi chay animation cac thuoc tinh gi se dien ra khi ket thuc  */
+    to{
+        transform: translateY(40px);
+        opacity: 0;
+    }
+}
+
+/* footer */
+footer {
+    padding: 50px 200px;
+    background-color: black;
+    color: white;
+}
+footer p{
+    font-size: 14px;
+}
+.footer_icon {
+    display: flex;
+    justify-content: space-between;
+    font-size: 30px;
+    margin: 0 25px;
+    padding: 25px;
+}

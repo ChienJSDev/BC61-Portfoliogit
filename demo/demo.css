@@ -1,0 +1,32 @@
+.demo{
+    height: 100vh;
+    background-color: black;
+    display: flex;
+    /* justify-content: flex-start;
+    align-items:flex-end;*/
+    /* flex-direction giúp đảo chiều của trục trong flex : nhận giá tri colum thì trục chính sẽ là trục dọc, row là trục ngang */
+    flex-direction: column;
+    justify-content: space-between;
+
+}
+
+.demo1{
+    background-color: red;
+    width: 200px;
+    height: 200px;
+}
+.demo2{
+    background-color: pink;
+    width: 200px;
+    height: 200px;
+}
+.demo3{
+    background-color: green;
+    width: 200px;
+    height: 200px;
+}
+.demo4{
+    background-color: orange;
+    width: 200px;
+    height: 200px;
+}
